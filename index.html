@@ -3,199 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Свой Дом — МиниДом 36</title>
-  <meta name="description" content="Каркасный дом MiniDom 36 м² — утепление по финской технологии, подходит для круглогодичного проживания. Консультирует Прораб Сергей." />
+  <title>MiniDom 36 — Современный дом от "Свой Дом"</title>
+  <meta name="description" content="Проект современного каркасного дома MiniDom 36. Полноценная евродвушка для круглогодичного проживания.">
 
-  <!-- Шрифты и стили -->
+  <!-- Шрифты и AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="icon" href="https://i.ibb.co/JjY66dXH/image.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Стили -->
   <style>
     :root {
-      --main-color: #2c3e50;
-      --accent-color: #ff6f61;
-      --bg-light: #f5f6fa;
-      --font-title: 'Montserrat', sans-serif;
-      --font-text: 'Roboto', sans-serif;
+      --color-deep-blue: #2c3e50;
+      --color-coral-accent: #FF6F61;
+      --color-ivory-white: #f5f6fa;
+      --font-headings: 'Montserrat', sans-serif;
+      --font-body: 'Roboto', sans-serif;
     }
 
-    * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
-      font-family: var(--font-text);
-      background-color: white;
+      padding: 0;
+      font-family: var(--font-body);
+      background: white;
+      color: var(--color-deep-blue);
       scroll-behavior: smooth;
-      color: var(--main-color);
     }
 
-    .btn {
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: bold;
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
+    img { max-width: 100%; display: block; }
+
+    section { padding: 80px 20px; }
+    h2 {
+      font-family: var(--font-headings);
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
     }
+
+    .container { max-width: 1200px; margin: 0 auto; }
 
     .hero {
       position: relative;
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       color: white;
     }
     .hero video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       z-index: -2;
     }
-    .hero::after {
+    .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      inset: 0;
       background: rgba(0,0,0,0.5);
       z-index: -1;
     }
-
-    .hero h1 {
-      font-size: 3em;
-      font-family: var(--font-title);
-    }
-    .hero h2 {
+    .hero-content {
+      z-index: 1;
       max-width: 800px;
-      font-size: 1.2em;
-      color: #eee;
     }
-    .logo img {
-      height: 60px;
-      margin-bottom: 30px;
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+
+    .btn {
+      background: var(--color-coral-accent);
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      font-family: var(--font-headings);
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    section {
-      padding: 80px 20px;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    .floating-button {
+    .features-grid, .technology-container, .pricing-grid, .floor-plan-grid {
+      display: grid;
+      gap: 30px;
+    }
+    .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: center; }
+    .technology-container { grid-template-columns: 1fr 1fr; align-items: center; }
+    .pricing-grid, .floor-plan-grid { grid-template-columns: 1fr 1fr; }
+
+    .cta { background: var(--color-deep-blue); color: white; text-align: center; padding: 80px 20px; }
+
+    .floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: var(--accent-color);
+      background-color: var(--color-coral-accent);
       color: white;
-      padding: 12px 16px;
+      padding: 16px;
       border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      font-size: 24px;
-      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .floating-button:hover {
-      background-color: #e05245;
+      font-size: 24px;
     }
 
-    .chatbot-popup {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 350px;
-      max-height: 500px;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      display: none;
-      z-index: 9999;
+    .footer {
+      background: #1a2633;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 40px 20px;
     }
 
-    .chatbot-popup iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    @media (max-width: 500px) {
-      .chatbot-popup {
-        width: 90%;
-        right: 5%;
+    @media (max-width: 768px) {
+      .technology-container, .pricing-grid, .floor-plan-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Первый блок с видео -->
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="https://vod-progressive.akamaized.net/exp=1720632831~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1086%2F25%2F637087266.mp4~hmac=48f6b6ff5e37565b8ea0ec1f358b3d26984a80e753f8670d2efabb6a587e5b7e/vimeo-prod-skyfire-std-us/01/1086/25/637087266.mp4" type="video/mp4">
-  </video>
-  <div class="logo">
-    <img src="https://i.ibb.co/JjY66dXH/image.png" alt="Логотип">
-  </div>
-  <h1>MiniDom 36</h1>
-  <h2>Дом для круглогодичного проживания по финской технологии</h2>
-  <a href="#cta" class="btn">Оставить заявку</a>
-</section>
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://player.vimeo.com/progressive_redirect/playback/936599869/rendition/1080p/file.mp4?loc=external&signature=b0ebdb72c24100cf2575f99973b7aee612203ff6072d48b6c0f2ff94382d6c66" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <img src="https://i.ibb.co/JjY66dXH/image.png" alt="Логотип" style="height: 60px; margin-bottom: 30px;">
+<h1>MiniDom 36 — Стильный дом 36м²</h1>
+      <p>Полноценная «евродвушка» по финской технологии. Идеально для круглогодичного проживания или аренды.</p>
+      <a href="#cta" class="btn">Начать исследование</a>
+    </div>
+  </section>
 
-<!-- Кнопка с Сергеем -->
-<div class="floating-button" id="sergeyBtn" title="Чат с прорабом Сергеем">
-  🧱
-</div>
-<div class="chatbot-popup" id="chatPopup">
-  <!-- При наличии Assistant ID вставьте его сюда -->
-  <iframe src="" id="sergeyIframe" title="Чат с Сергеем"></iframe>
-</div>
-<!-- CTA блок -->
-<section id="cta" style="background: var(--bg-light); text-align:center">
-  <h2>Готовы построить дом?</h2>
-  <p>Оставьте заявку и получите смету уже сегодня</p>
-  <form style="max-width:400px; margin:auto">
-    <input type="text" placeholder="Ваше имя" required style="width:100%;padding:10px;margin-bottom:10px">
-    <input type="tel" placeholder="Телефон" required style="width:100%;padding:10px;margin-bottom:10px">
-    <button class="btn" type="submit">Оставить заявку</button>
-  </form>
-</section>
+  <section>
+    <div class="container">
+      <h2>Галерея</h2>
+      <div class="gallery-grid">
+        <img src="https://i.ibb.co/dwDpHRs/image.png" alt="Главное фото"/>
+        <img src="https://i.ibb.co/608qYLK/image.png" alt="Терраса 1"/>
+        <img src="https://i.ibb.co/5Xh3wyZ/image.png" alt="Терраса 2"/>
+        <img src="https://i.ibb.co/Z4p3dtn/image.png" alt="Экстерьер"/>
+        <img src="https://i.ibb.co/N6Dy5pj/image.png" alt="Кухня"/>
+        <img src="https://i.ibb.co/XZym38H/image.png" alt="Спальня 1"/>
+        <img src="https://i.ibb.co/RGFbCn0/image.png" alt="Спальня 2"/>
+        <img src="https://i.ibb.co/SDTTq5d/image.png" alt="Спальня 3"/>
+      </div>
+    </div>
+  </section>
 
-<!-- Подвал -->
-<footer style="text-align:center; background:#1a2633; color:#ccc; padding:30px 20px">
-  <p>© 2025 «Свой Дом». Все права защищены.</p>
-  <p style="font-size: 0.8em">Информация не является публичной офертой.</p>
-</footer>
+  <section>
+    <div class="container">
+      <h2>Преимущества</h2>
+      <div class="features-grid">
+        <div><img src="https://i.ibb.co/0RHSFmQ/image.png" alt="Энергоэффективность"/><p>Перекрестное утепление 200мм — дом сохраняет тепло и экономит до 40% на отоплении.</p></div>
+        <div><img src="https://i.ibb.co/205Jh4c/image.png" alt="Экология"/><p>Безопасные материалы: базальтовый утеплитель, сухая строганая доска.</p></div>
+        <div><img src="https://i.ibb.co/tML8LHg/image.png" alt="Скорость"/><p>Срок строительства — от 2 месяцев. Быстрее, чем каменные дома в 4 раза.</p></div>
+      </div>
+    </div>
+  </section>
 
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    AOS.init();
+  <section>
+    <div class="container technology-container">
+      <div>
+        <img src="https://i.ibb.co/Q7RVdkx/image.png" alt="Разрез стены">
+        <img src="https://i.ibb.co/99xKsTd/image.png" alt="Утепление">
+      </div>
+      <div>
+        <h2>Технология</h2>
+        <p>Каркас из сухой строганой доски и перекрестное утепление полностью исключают «мостики холода». Мембраны и герметизация делают дом теплым зимой и прохладным летом.</p>
+      </div>
+    </div>
+  </section>
 
-    const sergeyBtn = document.getElementById("sergeyBtn");
-    const chatPopup = document.getElementById("chatPopup");
-    const iframe = document.getElementById("sergeyIframe");
+  <section>
+    <div class="container">
+      <h2>Комплектации</h2>
+      <div class="pricing-grid">
+        <div>
+          <h3>Теплый контур</h3>
+          <p>от 1 190 000 ₽</p>
+          <p>Фундамент, стены, крыша, окна и входная дверь. Готовая коробка для самостоятельной отделки.</p>
+        </div>
+        <div>
+          <h3>Под ключ</h3>
+          <p>от 2 090 000 ₽</p>
+          <p>Полная внутренняя отделка, разводка, двери и санфаянс. Готово к проживанию.</p>
+        </div>
+      </div>
+      <div class="floor-plan-grid">
+        <img src="https://i.ibb.co/5bqyGQK/image.png" alt="Планировка 1">
+        <img src="https://i.ibb.co/vvQJb7J/image.png" alt="Планировка 2">
+      </div>
+    </div>
+  </section>
 
-    sergeyBtn.addEventListener("click", function () {
-      if (chatPopup.style.display === "block") {
-        chatPopup.style.display = "none";
-      } else {
-        // ВСТАВЬТЕ СЮДА ССЫЛКУ НА GPT-ЧАТ СЕРГЕЕМ, ЕСЛИ ОН У ВАС ГОТОВ
-        iframe.src = "https://chat.openai.com/g/g-sergey";
-        chatPopup.style.display = "block";
-      }
-    });
-  });
-</script>
+  <section class="cta" id="cta">
+    <div class="container">
+      <h2>Оставьте заявку</h2>
+      <p>Мы свяжемся с вами, вышлем смету и поможем подобрать участок.</p>
+      <form>
+        <input type="text" placeholder="Имя" required>
+        <input type="tel" placeholder="Телефон" required>
+        <button type="submit" class="btn">Получить консультацию</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Свой Дом. Не является публичной офертой.</p>
+  </footer>
+
+  <div class="floating-btn" title="Прораб Сергей 👷">👷</div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
+
+
 
 
  
