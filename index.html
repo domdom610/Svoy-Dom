@@ -1,221 +1,207 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiniDom 36 — Современный каркасный дом</title>
-  <meta name="description" content="Современный, тёплый и эстетичный каркасный дом MiniDom 36. Финская технология. Лаконичный дизайн.">
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>МиниДом 36 | Свой Дом</title>
+  <meta name="description" content="МиниДом 36 — финский каркасный дом для круглогодичного проживания. Планировка, технологии, стоимость. Всё просто и по делу." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #1e1e1e;
-      --accent: #e17055;
-      --muted: #888;
-      --font-head: 'Montserrat', sans-serif;
-      --font-body: 'Roboto', sans-serif;
+      --color-bg: #f3f4f6;
+      --color-dark: #1f2937;
+      --color-accent: #2563eb;
+      --color-light: #ffffff;
+      --color-muted: #6b7280;
+      --radius: 12px;
+      --font-main: 'Inter', sans-serif;
     }
 
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body { font-family: var(--font-body); background: var(--bg); color: var(--text); }
-    h1,h2,h3 { font-family: var(--font-head); }
-    a { text-decoration: none; color: inherit; }
-
-    header, section, footer { padding: 60px 20px; }
-    .container { max-width: 1200px; margin: auto; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-main);
+      color: var(--color-dark);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; border-radius: var(--radius); }
+    h1, h2, h3 { font-weight: 700; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; }
+    section { padding: 4rem 1rem; max-width: 1200px; margin: auto; }
 
     .hero {
       position: relative;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
       color: white;
-      overflow: hidden;
+      text-align: center;
     }
-    .hero video {
+    .hero iframe {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -2;
     }
     .hero::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
       z-index: -1;
     }
-    .hero .content {
+    .hero h1 {
+      font-size: 2.5rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
       max-width: 700px;
-      z-index: 1;
     }
-    .logo img { height: 60px; margin-bottom: 30px; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; color: #ddd; margin-bottom: 30px; }
-    .btn { padding: 14px 28px; border-radius: 40px; background: var(--accent); color: #fff; font-weight: 600; transition: 0.3s; }
-    .btn:hover { background: #d35400; }
 
-    .gallery-grid {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 1rem;
     }
-    .gallery-grid img { width: 100%; border-radius: 8px; }
 
-    .features-grid {
+    .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
       text-align: center;
     }
-    .features-grid img { height: 60px; margin-bottom: 15px; }
+    .features img { height: 64px; margin-bottom: 1rem; }
 
-    .technology, .pricing, .cta { background: #f9f9f9; }
-    .technology-grid, .pricing-grid {
+    .plans {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 1.5rem;
     }
-    .pricing-card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+    .cta {
       text-align: center;
-    }
-
-    .cta input {
-      padding: 12px;
-      margin: 10px 0;
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .cta button {
-      margin-top: 10px;
-      background: var(--accent);
+      background: var(--color-accent);
       color: white;
-      border: none;
-      padding: 14px 24px;
-      border-radius: 30px;
-      cursor: pointer;
+      padding: 3rem 1rem;
+      border-radius: var(--radius);
     }
 
-    .floating-button {
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--color-muted);
+      font-size: 0.875rem;
+    }
+
+    .sergey-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: var(--accent);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
+      background: var(--color-dark);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 999px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 999;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
-    .floating-button img { width: 32px; height: 32px; }
+    .sergey-btn:hover {
+      background: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .plans { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="https://vod-progressive.akamaized.net/exp=1719999999~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4453%2F27%2F699250426.mp4~hmac=placeholder" type="video/mp4">
-</video>
-    <div class="content">
-      <div class="logo"><img src="https://i.postimg.cc/mr7dWXD8/1000014741.webp" alt="Логотип"></div>
-      <h1>MiniDom 36 — Всё, что нужно для жизни</h1>
-      <p>Лаконичный и тёплый дом для постоянного проживания и отдыха</p>
-      <a href="#cta" class="btn">Связаться</a>
-    </div>
-  </section>
 
-  <section class="container">
-    <h2>Галерея</h2>
-    <div class="gallery-grid">
-      <img src="https://postimg.cc/w1Y0sJWX">
-      <img src="https://i.postimg.cc/dVbWXPqh/1000014748.webp">
-      <img src="https://postimg.cc/qtbsQCGZ">
-      <img src="https://postimg.cc/xNktLPDR">
-      <img src="https://postimg.cc/mtCSRkbt">
-      <img src="https://postimg.cc/Yv7zS798">
-      <img src="https://postimg.cc/ZBnchLRS">
-      <img src="https://postimg.cc/6TTjsB2v">
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <iframe src="https://player.vimeo.com/video/935696892?autoplay=1&muted=1&loop=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <h1>МиниДом 36 — компактный, тёплый, финский</h1>
+  <p>Дом для круглогодичного проживания по финской технологии. 36м² комфорта и уюта.</p>
+</section>
 
-  <section class="container">
-    <h2>Преимущества</h2>
-    <div class="features-grid">
-      <div><img src="https://postimg.cc/PNBMBYng"><h3>Энергоэффективность</h3></div>
-      <div><img src="https://postimg.cc/kDVc1wzN"><h3>Экологичность</h3></div>
-      <div><img src="https://postimg.cc/rRtNDFxZ"><h3>Скорость</h3></div>
-    </div>
-  </section>
-
-  <section class="technology">
-    <div class="container technology-grid">
-      <div>
-        <img src="https://postimg.cc/SXDr5Pmd">
-        <img src="https://postimg.cc/679cMKxT">
-      </div>
-      <div>
-        <h2>Финская технология</h2>
-        <p>Каркас из сухой строганой доски, базальтовый утеплитель, перекрестное утепление стен 200 мм</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing">
-    <div class="container pricing-grid">
-      <div class="pricing-card">
-        <h3>Тёплый контур</h3>
-        <p>от 1 190 000 ₽</p>
-        <p>Фундамент, стены, окна, крыша</p>
-      </div>
-      <div class="pricing-card">
-        <h3>Под ключ</h3>
-        <p>от 2 090 000 ₽</p>
-        <p>Полная отделка, сантехника, электрика</p>
-      </div>
-    </div>
-    <div class="container">
-      <img src="https://postimg.cc/cgzc18g8">
-      <img src="https://postimg.cc/yW5fs2cr">
-    </div>
-  </section>
-
-  <section class="cta" id="cta">
-    <div class="container">
-      <h2>Оставьте заявку</h2>
-      <form>
-        <input type="text" placeholder="Имя" required>
-        <input type="tel" placeholder="Телефон" required>
-        <button type="submit">Получить консультацию</button>
-      </form>
-    </div>
-  </section>
-
-  <footer style="text-align:center; padding:40px; color:#888">© 2025 Свой Дом</footer>
-
-  <div class="floating-button">
-    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Сергей">
+<!-- Галерея -->
+<section>
+  <h2>Вдохновляющие детали</h2>
+<div class="gallery">
+    <img src="https://i.postimg.cc/w1Y0sJWX/image.png" alt="Главное фото">
+    <img src="https://i.postimg.cc/dVbWXPqh/1000014748.webp" alt="Терраса 1">
+    <img src="https://postimg.cc/qtbsQCGZ" alt="Терраса 2">
+    <img src="https://postimg.cc/xNktLPDR" alt="Экстерьер">
+    <img src="https://postimg.cc/mtCSRkbt" alt="Кухня">
+    <img src="https://postimg.cc/Yv7zS798" alt="Спальня 1">
+    <img src="https://postimg.cc/ZBnchLRS" alt="Спальня 2">
+    <img src="https://postimg.cc/6TTjsB2v" alt="Детали интерьера">
   </div>
+</section>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
+<!-- Преимущества -->
+<section>
+  <h2>Финские стандарты качества</h2>
+  <div class="features">
+    <div>
+      <img src="https://postimg.cc/PNBMBYng" alt="Энергоэффективность">
+      <h3>Энергоэффективность</h3>
+      <p>Перекрёстное утепление: тепло сохраняется даже в -30°C.</p>
+    </div>
+    <div>
+      <img src="https://postimg.cc/kDVc1wzN" alt="Экология">
+      <h3>Экологичность</h3>
+      <p>Натуральные материалы: древесина и базальтовая вата.</p>
+    </div>
+    <div>
+      <img src="https://postimg.cc/rRtNDFxZ" alt="Скорость строительства">
+      <h3>Скорость</h3>
+      <p>Сборка за 2-3 месяца с гарантией на каждый этап.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Планировки -->
+<section>
+  <h2>Планировка MiniDom 36</h2>
+  <div class="plans">
+    <img src="https://postimg.cc/cgzc18g8" alt="Планировка 1">
+    <img src="https://postimg.cc/yW5fs2cr" alt="Планировка 2">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Получите расчёт стоимости</h2>
+  <p>Заполните заявку, и мы свяжемся с вами в течение дня.</p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2025 Свой Дом. Информация на сайте не является публичной офертой.</p>
+</footer>
+
+<!-- Кнопка Сергея -->
+<a href="#" class="sergey-btn">
+  <i class="ph ph-user"></i> Прораб Сергей
+</a>
+
 </body>
 </html>
+
 
 
    
