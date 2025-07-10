@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MiniDom 36 — Современный дом от "Свой Дом"</title>
-  <meta name="description" content="Проект современного каркасного дома MiniDom 36. Полноценная евродвушка для круглогодичного проживания.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniDom 36 — Современный каркасный дом</title>
+  <meta name="description" content="Современный, тёплый и эстетичный каркасный дом MiniDom 36. Финская технология. Лаконичный дизайн.">
 
-  <!-- Шрифты и AOS -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Стили -->
   <style>
     :root {
-      --color-deep-blue: #2c3e50;
-      --color-coral-accent: #FF6F61;
-      --color-ivory-white: #f5f6fa;
-      --font-headings: 'Montserrat', sans-serif;
+      --bg: #ffffff;
+      --text: #1e1e1e;
+      --accent: #e17055;
+      --muted: #888;
+      --font-head: 'Montserrat', sans-serif;
       --font-body: 'Roboto', sans-serif;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-body);
-      background: white;
-      color: var(--color-deep-blue);
-      scroll-behavior: smooth;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); }
+    h1,h2,h3 { font-family: var(--font-head); }
+    a { text-decoration: none; color: inherit; }
 
-    img { max-width: 100%; display: block; }
-
-    section { padding: 80px 20px; }
-    h2 {
-      font-family: var(--font-headings);
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; }
+    header, section, footer { padding: 60px 20px; }
+    .container { max-width: 1200px; margin: auto; }
 
     .hero {
       position: relative;
@@ -49,188 +35,190 @@
       justify-content: center;
       text-align: center;
       color: white;
+      overflow: hidden;
     }
     .hero video {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
-      z-index: -2;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
       z-index: -1;
     }
-    .hero-content {
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    .hero .content {
+      max-width: 700px;
       z-index: 1;
-      max-width: 800px;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-
-    .btn {
-      background: var(--color-coral-accent);
-      color: white;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 30px;
-      font-family: var(--font-headings);
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .logo img { height: 60px; margin-bottom: 30px; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; color: #ddd; margin-bottom: 30px; }
+    .btn { padding: 14px 28px; border-radius: 40px; background: var(--accent); color: #fff; font-weight: 600; transition: 0.3s; }
+    .btn:hover { background: #d35400; }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+    .gallery-grid img { width: 100%; border-radius: 8px; }
 
-    .features-grid, .technology-container, .pricing-grid, .floor-plan-grid {
+    .features-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
+      text-align: center;
     }
-    .features-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: center; }
-    .technology-container { grid-template-columns: 1fr 1fr; align-items: center; }
-    .pricing-grid, .floor-plan-grid { grid-template-columns: 1fr 1fr; }
+    .features-grid img { height: 60px; margin-bottom: 15px; }
 
-    .cta { background: var(--color-deep-blue); color: white; text-align: center; padding: 80px 20px; }
+    .technology, .pricing, .cta { background: #f9f9f9; }
+    .technology-grid, .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .pricing-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
 
-    .floating-btn {
+    .cta input {
+      padding: 12px;
+      margin: 10px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .cta button {
+      margin-top: 10px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .floating-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: var(--color-coral-accent);
-      color: white;
-      padding: 16px;
+      background: var(--accent);
       border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       z-index: 999;
-      cursor: pointer;
-      font-size: 24px;
     }
-
-    .footer {
-      background: #1a2633;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    @media (max-width: 768px) {
-      .technology-container, .pricing-grid, .floor-plan-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .floating-button img { width: 32px; height: 32px; }
   </style>
 </head>
-
 <body>
-
   <section class="hero">
     <video autoplay muted loop playsinline>
-      <source src="https://player.vimeo.com/progressive_redirect/playback/936599869/rendition/1080p/file.mp4?loc=external&signature=b0ebdb72c24100cf2575f99973b7aee612203ff6072d48b6c0f2ff94382d6c66" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <img src="https://i.ibb.co/JjY66dXH/image.png" alt="Логотип" style="height: 60px; margin-bottom: 30px;">
-<h1>MiniDom 36 — Стильный дом 36м²</h1>
-      <p>Полноценная «евродвушка» по финской технологии. Идеально для круглогодичного проживания или аренды.</p>
-      <a href="#cta" class="btn">Начать исследование</a>
+      <source src="https://vod-progressive.akamaized.net/exp=1719999999~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4453%2F27%2F699250426.mp4~hmac=placeholder" type="video/mp4">
+</video>
+    <div class="content">
+      <div class="logo"><img src="https://i.postimg.cc/mr7dWXD8/1000014741.webp" alt="Логотип"></div>
+      <h1>MiniDom 36 — Всё, что нужно для жизни</h1>
+      <p>Лаконичный и тёплый дом для постоянного проживания и отдыха</p>
+      <a href="#cta" class="btn">Связаться</a>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2>Галерея</h2>
-      <div class="gallery-grid">
-        <img src="https://i.ibb.co/dwDpHRs/image.png" alt="Главное фото"/>
-        <img src="https://i.ibb.co/608qYLK/image.png" alt="Терраса 1"/>
-        <img src="https://i.ibb.co/5Xh3wyZ/image.png" alt="Терраса 2"/>
-        <img src="https://i.ibb.co/Z4p3dtn/image.png" alt="Экстерьер"/>
-        <img src="https://i.ibb.co/N6Dy5pj/image.png" alt="Кухня"/>
-        <img src="https://i.ibb.co/XZym38H/image.png" alt="Спальня 1"/>
-        <img src="https://i.ibb.co/RGFbCn0/image.png" alt="Спальня 2"/>
-        <img src="https://i.ibb.co/SDTTq5d/image.png" alt="Спальня 3"/>
-      </div>
+  <section class="container">
+    <h2>Галерея</h2>
+    <div class="gallery-grid">
+      <img src="https://postimg.cc/w1Y0sJWX">
+      <img src="https://i.postimg.cc/dVbWXPqh/1000014748.webp">
+      <img src="https://postimg.cc/qtbsQCGZ">
+      <img src="https://postimg.cc/xNktLPDR">
+      <img src="https://postimg.cc/mtCSRkbt">
+      <img src="https://postimg.cc/Yv7zS798">
+      <img src="https://postimg.cc/ZBnchLRS">
+      <img src="https://postimg.cc/6TTjsB2v">
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2>Преимущества</h2>
-      <div class="features-grid">
-        <div><img src="https://i.ibb.co/0RHSFmQ/image.png" alt="Энергоэффективность"/><p>Перекрестное утепление 200мм — дом сохраняет тепло и экономит до 40% на отоплении.</p></div>
-        <div><img src="https://i.ibb.co/205Jh4c/image.png" alt="Экология"/><p>Безопасные материалы: базальтовый утеплитель, сухая строганая доска.</p></div>
-        <div><img src="https://i.ibb.co/tML8LHg/image.png" alt="Скорость"/><p>Срок строительства — от 2 месяцев. Быстрее, чем каменные дома в 4 раза.</p></div>
-      </div>
+  <section class="container">
+    <h2>Преимущества</h2>
+    <div class="features-grid">
+      <div><img src="https://postimg.cc/PNBMBYng"><h3>Энергоэффективность</h3></div>
+      <div><img src="https://postimg.cc/kDVc1wzN"><h3>Экологичность</h3></div>
+      <div><img src="https://postimg.cc/rRtNDFxZ"><h3>Скорость</h3></div>
     </div>
   </section>
 
-  <section>
-    <div class="container technology-container">
+  <section class="technology">
+    <div class="container technology-grid">
       <div>
-        <img src="https://i.ibb.co/Q7RVdkx/image.png" alt="Разрез стены">
-        <img src="https://i.ibb.co/99xKsTd/image.png" alt="Утепление">
+        <img src="https://postimg.cc/SXDr5Pmd">
+        <img src="https://postimg.cc/679cMKxT">
       </div>
       <div>
-        <h2>Технология</h2>
-        <p>Каркас из сухой строганой доски и перекрестное утепление полностью исключают «мостики холода». Мембраны и герметизация делают дом теплым зимой и прохладным летом.</p>
+        <h2>Финская технология</h2>
+        <p>Каркас из сухой строганой доски, базальтовый утеплитель, перекрестное утепление стен 200 мм</p>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="pricing">
+    <div class="container pricing-grid">
+      <div class="pricing-card">
+        <h3>Тёплый контур</h3>
+        <p>от 1 190 000 ₽</p>
+        <p>Фундамент, стены, окна, крыша</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Под ключ</h3>
+        <p>от 2 090 000 ₽</p>
+        <p>Полная отделка, сантехника, электрика</p>
+      </div>
+    </div>
     <div class="container">
-      <h2>Комплектации</h2>
-      <div class="pricing-grid">
-        <div>
-          <h3>Теплый контур</h3>
-          <p>от 1 190 000 ₽</p>
-          <p>Фундамент, стены, крыша, окна и входная дверь. Готовая коробка для самостоятельной отделки.</p>
-        </div>
-        <div>
-          <h3>Под ключ</h3>
-          <p>от 2 090 000 ₽</p>
-          <p>Полная внутренняя отделка, разводка, двери и санфаянс. Готово к проживанию.</p>
-        </div>
-      </div>
-      <div class="floor-plan-grid">
-        <img src="https://i.ibb.co/5bqyGQK/image.png" alt="Планировка 1">
-        <img src="https://i.ibb.co/vvQJb7J/image.png" alt="Планировка 2">
-      </div>
+      <img src="https://postimg.cc/cgzc18g8">
+      <img src="https://postimg.cc/yW5fs2cr">
     </div>
   </section>
 
   <section class="cta" id="cta">
     <div class="container">
       <h2>Оставьте заявку</h2>
-      <p>Мы свяжемся с вами, вышлем смету и поможем подобрать участок.</p>
       <form>
         <input type="text" placeholder="Имя" required>
         <input type="tel" placeholder="Телефон" required>
-        <button type="submit" class="btn">Получить консультацию</button>
+        <button type="submit">Получить консультацию</button>
       </form>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2025 Свой Дом. Не является публичной офертой.</p>
-  </footer>
+  <footer style="text-align:center; padding:40px; color:#888">© 2025 Свой Дом</footer>
 
-  <div class="floating-btn" title="Прораб Сергей 👷">👷</div>
+  <div class="floating-button">
+    <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Сергей">
+  </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
+  <script>AOS.init();</script>
 </body>
 </html>
 
 
-
+   
 
  
  
