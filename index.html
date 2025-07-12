@@ -77,17 +77,28 @@
         /* Блок 1: Главный экран */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.6)), 
-                        url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.6)), 
+                        url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
         
         .hero-content {
@@ -120,14 +131,14 @@
                         url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%BF%D0%BB%D0%B5%D0%B4.jpg?raw=true');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+background-attachment: fixed;
         }
         
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-margin-top: 50px;
+            margin-top: 50px;
         }
         
         .gallery-item {
@@ -273,7 +284,7 @@ margin-top: 50px;
         .floorplan-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+gap: 40px;
             margin-top: 50px;
         }
         
@@ -282,7 +293,7 @@ margin-top: 50px;
         }
         
         .floorplan-item img {
-width: 100%;
+            width: 100%;
             max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -357,6 +368,7 @@ width: 100%;
             z-index: 1000;
             border: none;
             color: white;
+            font-family: 'Roboto', sans-serif;
         }
         
         .sergey-fab:hover {
@@ -365,16 +377,18 @@ width: 100%;
         }
         
         .sergey-fab svg {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 5px;
+            width: 25px;
+            height: 25px;
+            margin-bottom: 3px;
+            fill: white;
         }
         
         .sergey-fab span {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 500;
             text-align: center;
             line-height: 1;
+            color: white;
         }
         
         /* Адаптивность */
@@ -431,7 +445,7 @@ width: 100%;
 </head>
 <body>
     <!-- Блок 1: Главный экран -->
-    <section class="hero">
+<section class="hero">
         <div class="hero-content" data-aos="fade-up">
             <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424535_y.jpg?raw=true" alt="Логотип Свой Дом" class="logo">
             <h1>Мини-дом: стильный дом на 36 м²</h1>
@@ -439,7 +453,8 @@ width: 100%;
             <button class="btn" onclick="openSergeyChat()">Задать вопрос прорабу</button>
         </div>
     </section>
-<!-- Блок 2: Галерея -->
+
+    <!-- Блок 2: Галерея -->
     <section class="gallery">
         <div class="container">
             <h2 data-aos="fade-up">Пространство, созданное для жизни и отдыха</h2>
@@ -485,7 +500,7 @@ width: 100%;
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424531_y.jpg?raw=true" alt="Энергоэффективность" class="feature-icon">
                     <h3>Энергоэффективность</h3>
-                    <p>Современная теплоизоляция снижает расходы на отопление до 70%. Комфортная температура круглый год.</p>
+<p>Современная теплоизоляция снижает расходы на отопление до 70%. Комфортная температура круглый год.</p>
                 </div>
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424532_y.jpg?raw=true" alt="Доступная цена" class="feature-icon">
@@ -495,7 +510,8 @@ width: 100%;
             </div>
         </div>
     </section>
-<!-- Блок 4: Технологии -->
+
+    <!-- Блок 4: Технологии -->
     <section class="technology">
         <div class="container">
             <div class="tech-grid">
@@ -559,8 +575,7 @@ width: 100%;
             </div>
         </div>
     </section>
-
-    <!-- Блок 7: CTA -->
+<!-- Блок 7: CTA -->
     <section class="cta">
         <div class="container">
             <h2 data-aos="fade-up">Получите консультацию специалиста</h2>
@@ -568,7 +583,7 @@ width: 100%;
             <form class="cta-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="form-group">
                     <input type="text" placeholder="Ваше имя" required>
-</div>
+                </div>
                 <div class="form-group">
                     <input type="tel" placeholder="Ваш телефон" required>
                 </div>
@@ -587,49 +602,80 @@ width: 100%;
 
     <!-- Плавающая кнопка Прораб Сергей -->
     <button class="sergey-fab" onclick="openSergeyChat()">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1C14.2 0.2 13.1 0.2 12.3 1L11 2.3L12.7 4L15 1.7L20.3 7H22V9H21ZM17 19V15H19V19H17ZM5 19V15H7V19H5ZM3 13V11H21V13H3ZM3 21V19H21V21H3Z"/>
+        <svg viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M12 18C12.8 18 13.5 17.3 13.5 16.5S12.8 15 12 15 10.5 15.7 10.5 16.5 11.2 18 12 18M12 8C9.8 8 8 9.8 8 12C8 14.2 9.8 16 12 16S16 14.2 16 12C16 9.8 14.2 8 12 8M12 10C13.1 10 14 10.9 14 12C14 13.1 13.1 14 12 14C10.9 14 10 13.1 10 12C10 10.9 10.9 10 12 10M18 6H16V4H18V6M18 12H16V10H18V12M18 18H16V16H18V18M6 6H8V4H6V6M6 12H8V10H6V12M6 18H8V16H6V18"/>
         </svg>
         <span>Сергей<br>Прораб</span>
     </button>
 
     <!-- Подключение библиотеки AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
     
     <script>
-        // Скрипт для анимаций AOS
+        // Инициализация анимаций только после полной загрузки страницы
         document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({ 
-                duration: 800, 
+            AOS.init({
+                duration: 800,
                 once: true,
-                offset: 100
             });
         });
 
-        // Функция-заглушка для вызова чата
+        // Умная функция, которая открывает чат-бота
         function openSergeyChat() {
-            // Если чат-бот Chatbase загружен, открываем его
-            if (window.chatbase) {
+            // Проверяем, существует ли объект chatbase и является ли он функцией
+            if (window.chatbase && typeof window.chatbase.openChat === 'function') {
+                // Если да, даем команду открыть окно чата
                 window.chatbase.openChat();
             } else {
-                // Если нет, показываем простое уведомление
-                alert("Здравствуйте! Я прораб Сергей, чем могу помочь? (Чат загружается...)");
+                // Если нет (например, скрипт еще не загрузился), выводим простое уведомление
+                alert("Здравствуйте! Я прораб Сергей. Чат-бот загружается, подождите секунду...");
             }
         }
 
-        // Обработка формы
-        document.querySelector('.cta-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за заявку! Мы свяжемся с вами в течение 15 минут.');
-            this.reset();
+        // Обработка формы заявки
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.cta-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Спасибо за заявку! Мы свяжемся с вами в течение 15 минут.');
+                    this.reset();
+                });
+            }
         });
-    </script>
 
-    <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="elEbjas8v3UayyJoEx6Fq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        // Интеграция чат-бота Chatbase
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="elEbjas8v3UayyJoEx6Fq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>
 </body>
 </html>
+
+        
+      
+        
+         
+     
+      
+        
+        
+      
+        
+   
+        
+    
+   
+        
+     
+      
+       
+         
+            
+         
+  
+  
+   
+   
+
 
     
    
