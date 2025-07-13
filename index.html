@@ -39,8 +39,16 @@
         .btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
         .btn-primary { background-color: var(--color-coral-accent); color: white; border-color: var(--color-coral-accent); }
         
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(26, 37, 48, 0.7), rgba(26, 37, 48, 0.7)), url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.jpg?raw=true'); background-size: cover; background-position: center; z-index: -1; }
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            padding: 0 20px; 
+            background-color: var(--color-dark-background); /* Резервный фон */
+        }
         .hero-content { animation: fadeIn 1.2s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
@@ -54,8 +62,8 @@
         .gallery-grid img:hover { transform: scale(1.03); }
         
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
-.feature-item { padding: 30px; background: rgba(44, 62, 80, 0.5); border-radius: 10px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); }
-        .feature-icon { max-height: 80px; margin-bottom: 20px; display: inline-block; }
+        .feature-item { padding: 30px; background: rgba(44, 62, 80, 0.5); border-radius: 10px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); }
+.feature-icon { max-height: 80px; margin-bottom: 20px; display: inline-block; }
         
         .technology-container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
         .technology-image-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
@@ -81,13 +89,35 @@
         .sergey-fab-icon { width: 36px; height: 36px; margin-bottom: 2px; }
 
         @media (max-width: 768px) { section { padding: 60px 0; } h2 { font-size: 2em; } .features-grid, .pricing-grid, .technology-container, .floor-plan-grid { grid-template-columns: 1fr; } }
+
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 62, 80, 0.6);
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
 <main>
     <section class="hero">
+        <img src="https://raw.githubusercontent.com/domdom610/Svoy-Dom/main/images/главная.jpg" class="hero-background-image" alt="Фон - красивый дом в лесу" loading="eager">
         <div class="hero-content" data-aos="fade-in" data-aos-delay="200">
-             <div class="logo"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424535_y.jpg?raw=true" alt="Логотип Свой Дом" loading="eager"></div>
+            <div class="logo"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424535_y.jpg?raw=true" alt="Логотип Свой Дом"></div>
             <h1>Мини-дом: стильный дом на 36 м²</h1>
             <h2>Полноценная «евродвушка» с изолированной спальней и просторной кухней-гостиной. Построен по финской технологии для комфортной жизни круглый год.</h2>
         </div>
@@ -95,10 +125,10 @@
     <section class="gallery textured-bg" id="gallery">
         <div class="container">
             <h2 data-aos="fade-up">Пространство, созданное для жизни и отдыха</h2>
-            <div class="gallery-grid">
+<div class="gallery-grid">
                 <div data-aos="fade-up" data-aos-delay="100"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424526_y.jpg?raw=true" alt="Главное фото дома" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="200"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424523_y.jpg?raw=true" alt="Терраса дома" loading="lazy"></div>
-<div data-aos="fade-up" data-aos-delay="300"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424536_y.jpg?raw=true" alt="Вид на террасу" loading="lazy"></div>
+                <div data-aos="fade-up" data-aos-delay="300"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424536_y.jpg?raw=true" alt="Вид на террасу" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="400"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443011784094118439_x.jpg?raw=true" alt="Экстерьер дома" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="100"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424533_x.jpg?raw=true" alt="Кухня-гостиная" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="200"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424534_x.jpg?raw=true" alt="Спальня" loading="lazy"></div>
@@ -131,10 +161,10 @@
             <div class="technology-image-grid" data-aos="fade-right">
                 <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424525_y.jpg?raw=true" alt="3D разрез стены">
                 <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424528_y.jpg?raw=true" alt="Детали утепления">
-            </div>
+</div>
             <div class="technology-text" data-aos="fade-left">
                 <h2>Тепло, которое можно увидеть.</h2><p>Мы не экономим на том, что скрыто от глаз. В основе каждого нашего дома — проверенная финская технология с перекрестным утеплением. Сначала мы монтируем основной слой утеплителя (150 мм) между стойками каркаса, а затем добавляем еще один, горизонтальный слой (50 мм), который полностью перекрывает «мостики холода». В сочетании с профессиональными мембранами это создает эффект термоса, сохраняя тепло зимой и прохладу летом.</p>
-</div>
+            </div>
         </div>
     </section>
     <section class="pricing textured-bg" id="pricing">
@@ -190,7 +220,7 @@
     function openSergeyChat() {
         if (window.chatbase && typeof window.chatbase.openChat === 'function') {
             window.chatbase.openChat();
-        } else {
+} else {
             alert("Здравствуйте! Я прораб Сергей. Чат-бот загружается, подождите секунду...");
         }
     }
@@ -200,6 +230,9 @@
 </script>
 </body>
 </html>
+
+
+  
           
 
 
