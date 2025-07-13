@@ -1,3 +1,5 @@
+Прямая ссылка на изображение 
+<a href="https://freeimage.host/i/FMpackG"><img src="https://iili.io/FMpackG.png" alt="FMpackG.png" border="0" /></a>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,116 +18,129 @@
             --color-deep-blue: #2c3e50;
             --color-coral-accent: #FF6F61;
             --color-ivory-white: #f5f6fa;
-            --color-dark-background: #1a252f;
+            --color-light-gray: #e9ecef;
             --font-headings: 'Montserrat', sans-serif;
             --font-body: 'Roboto', sans-serif;
         }
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            font-family: var(--font-body); 
-            color: var(--color-ivory-white); 
-            background-color: var(--color-dark-background); 
-            line-height: 1.6; 
-            scroll-behavior: smooth; 
-        }
+        body, html { margin: 0; padding: 0; font-family: var(--font-body); color: var(--color-deep-blue); background-color: #ffffff; line-height: 1.6; scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3 { font-family: var(--font-headings); font-weight: 700; }
-        h2 { text-align: center; font-size: clamp(2em, 5vw, 2.5em); margin-bottom: 60px; color: white; }
-        h3 { color: white; }
-        section { padding: 80px 0; overflow: hidden; position: relative; }
+        h2 { text-align: center; font-size: clamp(2em, 5vw, 2.5em); margin-bottom: 60px; }
+        section { padding: 80px 0; overflow: hidden; }
         img { max-width: 100%; height: auto; display: block; }
         .btn { display: inline-block; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-family: var(--font-headings); transition: all 0.3s ease; border: 2px solid; cursor: pointer; font-weight: 700; }
         .btn:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
         .btn-primary { background-color: var(--color-coral-accent); color: white; border-color: var(--color-coral-accent); }
         
-        .hero { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: white; 
-            padding: 0 20px; 
-            background-color: var(--color-dark-background); /* Резервный фон */
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-image: url('https://iili.io/FMpackG.png'); 
+            background-size: cover; 
+            background-position: center; 
+            z-index: -1; 
         }
-        .hero-content { animation: fadeIn 1.2s ease-out; }
+        .hero-content { animation: fadeIn 1.2s ease-out; background-color: rgba(44, 62, 80, 0.6); padding: 20px; border-radius: 10px;}
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .hero h2 { font-size: clamp(1.1rem, 3vw, 1.3rem); max-width: 800px; margin: 0 auto; color: rgba(255,255,255,0.9); font-family: var(--font-body); }
         .hero .logo img { height: 60px; margin: 0 auto 40px auto; }
-
-        .textured-bg { background-image: url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%BF%D0%BB%D0%B5%D0%B4.jpg?raw=true'); background-attachment: fixed; background-size: cover; }
         
+        .gallery { background-image: url('https://github.com/domdom610/Svoy-Dom/blob/main/images/%D0%BF%D0%BB%D0%B5%D0%B4.jpg?raw=true'); background-attachment: fixed; background-size: cover; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .gallery-grid img:hover { transform: scale(1.03); }
         
+        .features { background-color: var(--color-ivory-white); }
         .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
-        .feature-item { padding: 30px; background: rgba(44, 62, 80, 0.5); border-radius: 10px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); }
 .feature-icon { max-height: 80px; margin-bottom: 20px; display: inline-block; }
         
+        .technology { background-color: #e9ecef; }
         .technology-container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
         .technology-image-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .technology-image-grid img { width: 100%; border-radius: 8px; }
         
+        .pricing { background-color: var(--color-ivory-white); }
         .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .price-card { border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; text-align: center; background: rgba(44, 62, 80, 0.5); backdrop-filter: blur(5px); }
+        .price-card { border: 1px solid #e0e0e0; padding: 30px; border-radius: 8px; text-align: center; background-color: white; transition: all 0.3s ease; }
+        .price-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
         .price-card .price { font-size: 2em; font-family: var(--font-headings); color: var(--color-coral-accent); margin: 10px 0 20px 0; }
         
+        .floor-plan { background-color: #ffffff; padding-top: 0; }
         .floor-plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 1000px; margin: 0 auto; }
-        .floor-plan-grid img { width: 100%; border: 1px solid #444; border-radius: 8px; }
+        .floor-plan-grid img { width: 100%; border: 1px solid #eee; border-radius: 8px; }
         
-        .cta { text-align: center; background-color: var(--color-deep-blue); }
-        .cta h2, .cta p { color: white; }
+        .cta { text-align: center; background-color: var(--color-deep-blue); color: white; }
+        .cta h2 { color: white; }
+        .cta p { color: rgba(255,255,255,0.8); }
         .cta-form { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 40px; }
         .cta-form input { padding: 15px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em; font-family: var(--font-body); }
-        .cta-form button { width: 100%; max-width: 434px; }
+        .cta-form button { width: 100%; max-width: 434px; padding: 16px 32px; border-radius: 50px; font-weight: 700; transition: all 0.3s ease; cursor: pointer; background-color: var(--color-coral-accent); color: white; border: 2px solid var(--color-coral-accent); }
         
-        .footer { background-color: #111; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 0; }
+        .footer { background-color: #1a2633; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 0; }
         
-        .sergey-fab { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background-color: var(--color-coral-accent); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; z-index: 1000; border: 2px solid white; cursor: pointer; font-family: var(--font-body); font-size: 11px; font-weight: 700; line-height: 1.2; text-align: center; }
-        .sergey-fab:hover { transform: scale(1.1); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        .sergey-fab-icon { width: 36px; height: 36px; margin-bottom: 2px; }
-
-        @media (max-width: 768px) { section { padding: 60px 0; } h2 { font-size: 2em; } .features-grid, .pricing-grid, .technology-container, .floor-plan-grid { grid-template-columns: 1fr; } }
-
-        .hero-background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
+        .sergey-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-coral-accent);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid white;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+        }
+        .sergey-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .sergey-fab-icon {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 2px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(44, 62, 80, 0.6);
-            z-index: -1;
+        @media (max-width: 768px) { 
+            section { padding: 60px 0; } 
+            h2 { font-size: 2em; } 
+            .features-grid, .pricing-grid, .technology-container, .floor-plan-grid { grid-template-columns: 1fr; } 
+            .sergey-fab { width: 70px; height: 70px; bottom: 20px; right: 20px; }
+            .sergey-fab-icon { width: 32px; height: 32px; }
+            .sergey-fab span { display: none; }
         }
     </style>
 </head>
 <body>
 <main>
     <section class="hero">
-        <img src="https://raw.githubusercontent.com/domdom610/Svoy-Dom/main/images/главная.jpg" class="hero-background-image" alt="Фон - красивый дом в лесу" loading="eager">
-        <div class="hero-content" data-aos="fade-in" data-aos-delay="200">
-            <div class="logo"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424535_y.jpg?raw=true" alt="Логотип Свой Дом"></div>
-            <h1>Мини-дом: стильный дом на 36 м²</h1>
+        <div class="hero-content">
+             <div class="logo"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424535_y.jpg?raw=true" alt="Логотип Свой Дом" loading="eager"></div>
+<h1>Мини-дом: стильный дом на 36 м²</h1>
             <h2>Полноценная «евродвушка» с изолированной спальней и просторной кухней-гостиной. Построен по финской технологии для комфортной жизни круглый год.</h2>
         </div>
     </section>
-    <section class="gallery textured-bg" id="gallery">
+    <section class="gallery" id="gallery">
         <div class="container">
             <h2 data-aos="fade-up">Пространство, созданное для жизни и отдыха</h2>
-<div class="gallery-grid">
+            <div class="gallery-grid">
                 <div data-aos="fade-up" data-aos-delay="100"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424526_y.jpg?raw=true" alt="Главное фото дома" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="200"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424523_y.jpg?raw=true" alt="Терраса дома" loading="lazy"></div>
                 <div data-aos="fade-up" data-aos-delay="300"><img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424536_y.jpg?raw=true" alt="Вид на террасу" loading="lazy"></div>
@@ -137,7 +152,7 @@
             </div>
         </div>
     </section>
-    <section class="features textured-bg" id="features">
+    <section class="features" id="features">
         <div class="container">
             <h2 data-aos="fade-up">Разумный выбор в цифрах и фактах</h2>
             <div class="features-grid">
@@ -149,25 +164,25 @@
                     <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424531_y.jpg?raw=true" alt="Иконка Экологичные материалы" class="feature-icon" loading="lazy">
                     <h3>Экологичные материалы</h3><p>Каркас из сухой строганой доски и безопасный для здоровья базальтовый утеплитель.</p>
                 </div>
-                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                <div data-aos="fade-up" data-aos-delay="300">
                     <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424532_y.jpg?raw=true" alt="Иконка Быстрые сроки" class="feature-icon" loading="lazy">
                     <h3>Быстрые сроки</h3><p>Строительство дома занимает от 2 до 3 месяцев, в отличие от 8-12 месяцев для каменных домов.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="technology textured-bg">
+    <section class="technology">
         <div class="container technology-container">
-            <div class="technology-image-grid" data-aos="fade-right">
+<div class="technology-image-grid" data-aos="fade-right">
                 <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424525_y.jpg?raw=true" alt="3D разрез стены">
                 <img src="https://github.com/domdom610/Svoy-Dom/blob/main/images/photo_5443140577278424528_y.jpg?raw=true" alt="Детали утепления">
-</div>
+            </div>
             <div class="technology-text" data-aos="fade-left">
                 <h2>Тепло, которое можно увидеть.</h2><p>Мы не экономим на том, что скрыто от глаз. В основе каждого нашего дома — проверенная финская технология с перекрестным утеплением. Сначала мы монтируем основной слой утеплителя (150 мм) между стойками каркаса, а затем добавляем еще один, горизонтальный слой (50 мм), который полностью перекрывает «мостики холода». В сочетании с профессиональными мембранами это создает эффект термоса, сохраняя тепло зимой и прохладу летом.</p>
             </div>
         </div>
     </section>
-    <section class="pricing textured-bg" id="pricing">
+    <section class="pricing" id="pricing">
         <div class="container">
              <h2 data-aos="fade-up">Выберите свою комплектацию</h2>
              <div class="pricing-grid">
@@ -180,7 +195,7 @@
              </div>
         </div>
     </section>
-    <section class="floor-plan textured-bg" id="floor-plan">
+    <section class="floor-plan" id="floor-plan">
         <div class="container">
             <h2 data-aos="fade-up">Продуманная планировка</h2>
             <div class="floor-plan-grid" data-aos="fade-up">
@@ -207,29 +222,27 @@
     </div>
 </footer>
 
-<button onclick="openSergeyChat()" class="sergey-fab" aria-label="Задать вопрос прорабу">
-    <svg class="sergey-fab-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+<button onclick="window.chatbase.openChat()" class="sergey-fab" aria-label="Задать вопрос прорабу">
+    <svg class="sergey-fab-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
     <span>Сергей<br>Прораб</span>
 </button>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="elEbjas8v3UayyJoEx6Fq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         AOS.init({ duration: 800, once: true });
     });
-    function openSergeyChat() {
-        if (window.chatbase && typeof window.chatbase.openChat === 'function') {
-            window.chatbase.openChat();
-} else {
-            alert("Здравствуйте! Я прораб Сергей. Чат-бот загружается, подождите секунду...");
-        }
-    }
-</script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="elEbjas8v3UayyJoEx6Fq";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
 </html>
+
+ 
+   
+  
+
 
 
   
